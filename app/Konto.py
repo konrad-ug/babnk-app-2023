@@ -1,7 +1,7 @@
 class Konto:
     def __init__(self, imie, nazwisko, pesel, kod_promocyjny=None):
-        self.imie = imie
-        self.nazwisko = nazwisko
+        self.name = imie
+        self.surname = nazwisko
         if pesel.isdigit() and len(pesel) == 11:
             self.pesel = pesel
         else:
@@ -26,3 +26,11 @@ class Konto:
             return True
         else:
             return False
+        
+    def przelew_przychodzacy(self, kwota):
+        if kwota > 0:
+            self.saldo += kwota
+
+    def przelew_wychodzacy(self, kwota):
+        if kwota > 0 and kwota <= self.saldo:
+            self.saldo -= kwota
