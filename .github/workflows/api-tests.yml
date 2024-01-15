@@ -27,7 +27,7 @@ jobs:
       run: |
         docker compose -f app/mongo.yml up -d
         echo "Waiting for MongoDB to be ready..."
-        while ! docker exec my_mongo_container mongo --eval "db.adminCommand('ping')"; do sleep 1; done
+        while ! docker exec mongo mongo --eval "db.adminCommand('ping')"; do sleep 1; done
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
