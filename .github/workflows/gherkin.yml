@@ -39,7 +39,10 @@ jobs:
         flask --app app/api.py run &
     - name: start mongo DB
       run: |
-        docker compose -f app/mongo.yml up
+        docker compose -f app/mongo.yml up -d
+    - name: install behave
+      run: |
+        pip install behave
     - name: Execute gherkin scenarios
       run: |
         behave app/features

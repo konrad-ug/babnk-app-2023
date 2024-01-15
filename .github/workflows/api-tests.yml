@@ -36,10 +36,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: start flask
       run: |
-        flask --app app/api.py run
+        flask --app app/api.py run &
     - name: start mongo DB
       run: |
-        docker compose -f app/mongo.yml up &
+        docker compose -f app/mongo.yml up -d
     - name: Execute unit test
       run: |
         python3 run -m unittest app/api_test.py
