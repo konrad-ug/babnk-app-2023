@@ -30,6 +30,7 @@ class RejestrKont():
 
     @classmethod
     def zaladuj_konta_z_bazy_danych(cls):
+        cls.lista = []
         for kontoDB in cls.collection.find():
             konto = KontoOsobiste(kontoDB["name"], kontoDB["surname"], kontoDB["pesel"])
             konto.saldo = kontoDB["saldo"]

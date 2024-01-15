@@ -1,2 +1,5 @@
 coverage==6.5.0
 parameterized==0.8.1
+requests==2.30.0
+behave==1.2.6
+Flask==2.3.2
