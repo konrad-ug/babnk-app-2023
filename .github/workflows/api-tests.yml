@@ -42,4 +42,4 @@ jobs:
         docker compose -f app/mongo.yml up -d
     - name: Execute unit test
       run: |
-        python3 run -m unittest app/api_test.py
+        python3 -m unittest app/api_test/*.py
